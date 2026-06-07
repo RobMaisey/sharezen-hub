@@ -88,3 +88,13 @@ This doubles as the **template** for future migrations (next up: sharezenpro.com
 - `pages.cname` = `sharezen.com`; `https_enforced` = `true`; `cert_state` = `approved`.
 - `https://sharezen.com` → HTTP 200, valid certificate, serves the hub ("ShareZen").
 - `http://sharezen.com` → 301 redirect to `https://sharezen.com`.
+  ## 404 handling (2026-06-06)
+- Added `404.html` to the repo root. GitHub Pages serves it automatically for any
+  unmatched path. Styled to match `index.html` (same fonts, colour vars, mark, animations).
+- Behaviour: friendly "this page has moved" message, 4-second redirect to
+  https://sharezen.com/ via `<meta http-equiv="refresh">`, plus a manual button.
+- `<meta name="robots" content="noindex">` so the page stays out of search results.
+- Why: retired Weebly paths (e.g. /sharing-software.html) now 404 and bounce to the
+  homepage instead of hitting the generic grey GitHub 404.
+- Template note: replicate this 404.html for sharezenpro.com, swapping the redirect
+  target to that apex.
